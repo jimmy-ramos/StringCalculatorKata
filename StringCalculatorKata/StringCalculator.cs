@@ -4,10 +4,13 @@ public class StringCalculator
 {
     public static int Add(string numbers)
     {
-        if (numbers == "1,2")
-            return 3;
-        if (numbers == "2,6")
-            return 8;
-        return numbers == "" ? 0 : 1;
+        if (numbers.Length == 0)
+            return 0;
+        if (!numbers.Contains(','))
+            return int.Parse(numbers);
+        
+        var splitRes = numbers.Split(',');
+        
+        return int.Parse(splitRes[0]) + int.Parse(splitRes[1]);
     }
 }
