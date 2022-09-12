@@ -68,16 +68,19 @@ public class StringCalculatorTest
     [Fact]
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithBreakLine()
     {
-        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n"));
+        var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n"));
+        Assert.Equal("Input Error: Ends with a break line.", exception.Message);
     }
     [Fact]
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithCommaAndBreakLine()
     {
-        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2,\n"));
+        var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2,\n"));
+        Assert.Equal("Input Error: Two Delimiters cannot be put next to each other.", exception.Message);
     }
     [Fact]
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithBreakLineAndComma()
     {
-        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n,"));
+        var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n,"));
+        Assert.Equal("Input Error: Two Delimiters cannot be put next to each other.", exception.Message);
     }
 }
