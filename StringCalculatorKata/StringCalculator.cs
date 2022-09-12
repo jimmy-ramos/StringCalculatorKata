@@ -8,14 +8,6 @@ public class StringCalculator
         {
             return 0; 
         }
-
-        if (!numbers.Contains(','))
-        {
-            return int.Parse(numbers);
-        }
-
-        var splitRes = numbers.Split(',');
-
-        return int.Parse(splitRes[0]) + int.Parse(splitRes[1]);
+        return numbers.Split(',').Aggregate(0, (sum, current) => sum + int.Parse(current));
     }
 }
