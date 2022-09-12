@@ -58,11 +58,16 @@ public class StringCalculatorTest
     [Theory]
     [InlineData("1\n2,3", 6)]
     [InlineData("2\n5", 7)]
-    [InlineData("2,\n", 2)]
     public void ShouldReturnSum_WhenGivenInputWithNewLine(string input, int expected)
     {
         var actual = StringCalculator.Add(input);
         
         Assert.Equal(expected, actual);
+    }
+    
+    [Fact]
+    public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithBreakLine()
+    {
+        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n"));
     }
 }

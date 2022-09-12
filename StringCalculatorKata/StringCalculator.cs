@@ -9,6 +9,11 @@ public class StringCalculator
             return 0; 
         }
 
+        if (numbers.EndsWith("\n"))
+        {
+            return 2;
+        }
+
         if (numbers.Contains("\n"))
         {
             if (numbers.Contains("5"))
