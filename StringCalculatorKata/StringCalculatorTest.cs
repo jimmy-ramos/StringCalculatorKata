@@ -25,4 +25,11 @@ public class StringCalculatorTest
         
         Assert.Equal(3, actual);
     }
+    [Fact]
+    public void ShouldAddReturn8_WhenInputIs2And6()
+    {
+        var actual = StringCalculator.Add("2,6");
+        
+        Assert.Equal(8, actual);
+    }
 }
