@@ -94,12 +94,12 @@ public class StringCalculatorTest
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputStartsWithComma()
     {
         var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add(",2"));
-        Assert.Equal("Input Error: Two Delimiters cannot be put next to each other.", exception.Message);
+        Assert.Equal("Input Error: Start with a comma.", exception.Message);
     }
     [Fact]
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputStartsWithBreakLine()
     {
         var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("\n2"));
-        Assert.Equal("Input Error: Two Delimiters cannot be put next to each other.", exception.Message);
+        Assert.Equal("Input Error: Start with a breaking line.", exception.Message);
     }
 }

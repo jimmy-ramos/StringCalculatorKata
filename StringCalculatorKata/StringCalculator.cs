@@ -8,12 +8,15 @@ public class StringCalculator
         {
             return 0; 
         }
-
-        if (numbers.Contains(",\n") || numbers.Contains("\n,"))
-        {
-            throw new InvalidDataException("Input Error: Two Delimiters cannot be put next to each other.");
-        }
         
+        if (numbers.StartsWith("\n"))
+        {
+            throw new InvalidDataException("Input Error: Start with a breaking line.");
+        }
+        if (numbers.StartsWith(","))
+        {
+            throw new InvalidDataException("Input Error: Start with a comma.");
+        }
         if (numbers.EndsWith("\n"))
         {
             throw new InvalidDataException("Input Error: Ends with a break line.");
@@ -22,6 +25,10 @@ public class StringCalculator
         {
             throw new InvalidDataException("Input Error: Ends with a comma.");
         }
+        if (numbers.Contains(",\n") || numbers.Contains("\n,"))
+        {
+            throw new InvalidDataException("Input Error: Two Delimiters cannot be put next to each other.");
+        } 
         
         numbers = numbers.Replace('\n', ',');
         
