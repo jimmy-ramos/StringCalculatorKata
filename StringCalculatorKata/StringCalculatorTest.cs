@@ -70,4 +70,14 @@ public class StringCalculatorTest
     {
         Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n"));
     }
+    [Fact]
+    public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithCommaAndBreakLine()
+    {
+        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2,\n"));
+    }
+    [Fact]
+    public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithBreakLineAndComma()
+    {
+        Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n,"));
+    }
 }

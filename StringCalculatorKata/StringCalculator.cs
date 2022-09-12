@@ -11,7 +11,7 @@ public class StringCalculator
 
         if (numbers.EndsWith("\n"))
         {
-            return 2;
+            throw new InvalidDataException("Input Error: Ends with a break line.");
         }
 
         if (numbers.Contains("\n"))
