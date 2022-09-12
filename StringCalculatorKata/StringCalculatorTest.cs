@@ -17,4 +17,12 @@ public class StringCalculatorTest
         
         Assert.Equal(1, actual);
     }
+    
+    [Fact]
+    public void ShouldAddReturn3_WhenInputIs1And2()
+    {
+        var actual = StringCalculator.Add("1,2");
+        
+        Assert.Equal(3, actual);
+    }
 }
