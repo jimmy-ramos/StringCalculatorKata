@@ -18,13 +18,13 @@ public class StringCalculator
         {
             throw new InvalidDataException("Input Error: Ends with a break line.");
         }
-
-        if (numbers.Contains("\n"))
+        if (numbers.EndsWith(","))
         {
-            if (numbers.Contains("5"))
-                return 7;
-            return 6;
+            throw new InvalidDataException("Input Error: Ends with a comma.");
         }
+        
+        numbers = numbers.Replace('\n', ',');
+        
         return numbers.Split(',').Aggregate(0, (sum, current) => sum + int.Parse(current));
     }
 }
