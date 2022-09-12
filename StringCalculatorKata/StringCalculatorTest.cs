@@ -33,4 +33,16 @@ public class StringCalculatorTest
         
         Assert.Equal(expected, actual);
     }
+    
+    [Theory]
+    [InlineData("1,2,3", 6)]
+    [InlineData("17,500,1000", 1517)]
+    [InlineData("3,20,400", 423)]
+    [InlineData("520,10,6", 536)]
+    public void ShouldReturnSum_WhenGivenAnyPositivesNumbers(string input, int expected)
+    {
+        var actual = StringCalculator.Add(input);
+        
+        Assert.Equal(expected, actual);
+    }
 }

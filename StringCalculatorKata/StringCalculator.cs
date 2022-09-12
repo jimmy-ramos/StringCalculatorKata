@@ -5,9 +5,14 @@ public class StringCalculator
     public static int Add(string numbers)
     {
         if (numbers.Length == 0)
-            return 0;
+        {
+            return 0; 
+        }
+
         if (!numbers.Contains(','))
-            return 1;
+        {
+            return int.Parse(numbers);
+        }
 
         var splitRes = numbers.Split(',');
 
