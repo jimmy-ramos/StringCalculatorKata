@@ -17,19 +17,16 @@ public class StringCalculatorTest
         
         Assert.Equal(1, actual);
     }
-    
-    [Fact]
-    public void ShouldAddReturn3_WhenInputIs1And2()
+
+    [Theory]
+    [InlineData("1,2", 3)]
+    [InlineData("2,6", 8)]
+    [InlineData("9,1000", 1009)]
+    [InlineData("17,6", 23)]
+    public void ShouldAddReturn8_WhenInputIs2And6(string input, int expected)
     {
-        var actual = StringCalculator.Add("1,2");
+        var actual = StringCalculator.Add(input);
         
-        Assert.Equal(3, actual);
-    }
-    [Fact]
-    public void ShouldAddReturn8_WhenInputIs2And6()
-    {
-        var actual = StringCalculator.Add("2,6");
-        
-        Assert.Equal(8, actual);
+        Assert.Equal(expected, actual);
     }
 }
