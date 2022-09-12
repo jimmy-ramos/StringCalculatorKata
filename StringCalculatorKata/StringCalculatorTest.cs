@@ -58,6 +58,7 @@ public class StringCalculatorTest
     [Theory]
     [InlineData("1\n2,3", 6)]
     [InlineData("2\n5", 7)]
+    [InlineData("2\n5,9,5", 21)]
     public void ShouldReturnSum_WhenGivenInputWithNewLine(string input, int expected)
     {
         var actual = StringCalculator.Add(input);
@@ -70,6 +71,12 @@ public class StringCalculatorTest
     {
         var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2\n"));
         Assert.Equal("Input Error: Ends with a break line.", exception.Message);
+    }
+    [Fact]
+    public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithComma()
+    {
+        var exception = Assert.Throws<InvalidDataException>(() => StringCalculator.Add("2,"));
+        Assert.Equal("Input Error: Ends with a comma.", exception.Message);
     }
     [Fact]
     public void ShouldThrowInvalidDataException_WhenGivenInvalidInputEndWithCommaAndBreakLine()

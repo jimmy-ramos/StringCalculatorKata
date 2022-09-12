@@ -9,6 +9,11 @@ public class StringCalculator
             return 0; 
         }
 
+        if (numbers.Contains(",\n") || numbers.Contains("\n,"))
+        {
+            throw new InvalidDataException("Input Error: Two Delimiters cannot be put next to each other.");
+        }
+        
         if (numbers.EndsWith("\n"))
         {
             throw new InvalidDataException("Input Error: Ends with a break line.");
