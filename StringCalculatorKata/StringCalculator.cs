@@ -7,10 +7,10 @@ public class StringCalculator
         if (numbers.Length == 0)
             return 0;
         if (!numbers.Contains(','))
-            return int.Parse(numbers);
-        
+            return 1;
+
         var splitRes = numbers.Split(',');
-        
+
         return int.Parse(splitRes[0]) + int.Parse(splitRes[1]);
     }
 }
